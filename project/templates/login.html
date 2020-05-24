@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Navigus: Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{{ url_for('static',filename='favicon.ico')}}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='bootstrap.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='font-awesome.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='icon-font.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='animate.css')}}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='hamburgers.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='animsition.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='select2.min.css')}}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='daterangepicker.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='util.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='main.css')}}">
+<!--===============================================================================================-->
+</head>
+<body style="background-color: #666666;">
+	
+	<div class="limiter">
+		<div class="container-login100">
+			{% with messages = get_flashed_messages(with_categories=True) %}
+				{% if messages %}
+					{% for category,message in messages %}
+						<div class="alert alert-{{ category }}">
+							{{ message }}
+						</div>
+					{% endfor %}
+				{% endif %}
+			{% endwith %}
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" method="POST" action="">
+					{{ form.hidden_tag() }}
+					<fieldset class=form-group>
+						<span class="login100-form-title p-b-43">
+							Login to continue
+						</span>
+						<div class='form-group'>
+							{{ form.email.label(class="form-control-label") }}
+							{% if form.email.errors %}
+								{{ form.email(class="from-control form-control-lg is-invalid") }}
+								<div class="form-group">
+									{% for error in form.email.errors %}
+										<span>{{ error }}</span>
+									{% endfor %}
+								</div>
+							{% else %}
+								{{ form.email(class="form-control form-control-lg") }}
+							{% endif %}
+						</div>
+						<div class='form-group'>
+							{{ form.password.label(class="form-control-label") }}
+							{% if form.password.errors %}
+								{{ form.password(class="from-control form-control-lg is-invalid") }}
+								<div class="form-group">
+									{% for error in form.password.errors %}
+										<span>{{ error }}</span>
+									{% endfor %}
+								</div>
+							{% else %}
+								{{ form.password(class="form-control form-control-lg") }}
+							{% endif %}
+						</div>
+					</fieldset>
+
+					<div class="flex-sb-m w-full p-t-3 p-b-32">
+						<div class="contact100-form-checkbox">
+							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+							<label class="label-checkbox100" for="ckb1">
+								Remember me
+							</label>
+						</div>
+
+						<div>
+							<a href="#" class="txt1">
+								Forgot Password?
+							</a>
+						</div>
+					</div>
+			
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Login
+						</button>
+					</div>
+					
+					<div class="text-center p-t-46 p-b-20">
+						<span class="txt2">
+							New here? <a href= "{{ url_for('register') }}">sign up</a>
+						</span>
+					</div>
+				</form>
+
+				<div class="login100-more">
+					<img src="{{url_for('static',filename='images/bg-01.jpg')}}"/>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+
+	
+	
+<!--===============================================================================================-->
+	<script src="{{url_for('static',filename='jquery-3.2.1.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{url_for('static',filename='animsition.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{url_for('static',filename='popper.js')}}"></script>
+	<script src="{{url_for('static',filename='bootstrap.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{url_for('static',filename='select2.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{url_for('static',filename='moment.min.js')}}"></script>
+	<script src="{{url_for('static',filename='daterangepicker.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{url_for('static',filename='countdowntime.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{url_for('static',filename='main.js')}}"></script>
+
+</body>
+</html>
